@@ -10,7 +10,7 @@ function Canvas() {
     const clearButton = useRef(null);
 
     const SIZE_COUNT = 16;
-    const CANVAS_SIZE = 512; // Use exact size
+    const CANVAS_SIZE = 640; // Use exact size
     const CELL_SIZE = CANVAS_SIZE / SIZE_COUNT; // 32px per cell
     const colorHistory = {};
     
@@ -67,9 +67,17 @@ function Canvas() {
         const x = e.clientX - canvasBoundingRect.left;
         const y = e.clientY - canvasBoundingRect.top;
         
+        // Calculate the scale factors
+        const scaleX = CANVAS_SIZE / canvasBoundingRect.width;
+        const scaleY = CANVAS_SIZE / canvasBoundingRect.height;
+        
+        // Adjust coordinates based on scale
+        const adjustedX = x * scaleX;
+        const adjustedY = y * scaleY;
+        
         // Calculate cell coordinates
-        const cellX = Math.floor(x / CELL_SIZE);
-        const cellY = Math.floor(y / CELL_SIZE);
+        const cellX = Math.floor(adjustedX / CELL_SIZE);
+        const cellY = Math.floor(adjustedY / CELL_SIZE);
         
         // Ensure we're within bounds
         if (cellX >= 0 && cellX < SIZE_COUNT && cellY >= 0 && cellY < SIZE_COUNT) {
@@ -117,7 +125,7 @@ function Canvas() {
     return (
         <>
             <div className="canvas-container">
-                <div id="guide" ref={guide}></div>
+                <div id="guide" ref={guide} style={{ width: CANVAS_SIZE, height: CANVAS_SIZE }}></div>
                 <canvas 
                     width={CANVAS_SIZE}
                     height={CANVAS_SIZE}

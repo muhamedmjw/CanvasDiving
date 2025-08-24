@@ -2,16 +2,15 @@
     position: relative;
     display: inline-block;
     border: 2px solid #333;
-    width: 512px;
-    height: 512px;
+    image-rendering: pixelated; 
+    image-rendering: crisp-edges;
 }
 
 #canvas {
     cursor: pointer;
     display: block;
     border: none;
-    width: 512px;
-    height: 512px;
+
 }
 
 #guide {
@@ -20,8 +19,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 512px;
-    height: 512px;
+
     box-sizing: border-box;
 }
 
