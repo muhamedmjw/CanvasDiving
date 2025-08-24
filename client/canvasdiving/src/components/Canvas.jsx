@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import '../assets/styles/Canvas.css';
 
+
+
 function Canvas() {
     
     const canvas = useRef(null);
@@ -9,7 +11,7 @@ function Canvas() {
     const toggleGuide = useRef(null);
     const clearButton = useRef(null);
 
-    const SIZE_COUNT = 16;
+    const SIZE_COUNT = 64;
     const CANVAS_SIZE = 640; // Use exact size
     const CELL_SIZE = CANVAS_SIZE / SIZE_COUNT; // 32px per cell
     const colorHistory = {};
@@ -124,32 +126,41 @@ function Canvas() {
 
     return (
         <>
-            <div className="canvas-container">
-                <div id="guide" ref={guide} style={{ width: CANVAS_SIZE, height: CANVAS_SIZE }}></div>
-                <canvas 
-                    width={CANVAS_SIZE}
-                    height={CANVAS_SIZE}
-                    id="canvas" 
-                    ref={canvas} 
-                    onMouseDown={handleCanvasMouseDown}
-                    onMouseMove={handleCanvasMouseMove}
-                    onMouseUp={handleCanvasMouseUp}
-                    onMouseLeave={() => setIsDrawing(false)}
-                />
-            </div>
-            <div>
-                <label htmlFor="colorPicker">Color: </label>
-                <input type="color" id="colorPicker" defaultValue="#000000" ref={colorPicker}/>
-            </div>
-            <div>
-                <label htmlFor="toggleGuide">Toggle Grid: </label>
-                <input type="checkbox" id="toggleGuide" defaultChecked ref={toggleGuide} onChange={handleToggleGuide}/>
-            </div>
-            <div>
-                <button type="button" id="clear" ref={clearButton} onClick={handleClearButton}>Clear</button>
-            </div>
+                <div className="canvas-component">
+                    <div className="canvas">
+                    <div id="guide" ref={guide} style={{ width: CANVAS_SIZE, height: CANVAS_SIZE }}></div>
+                    <canvas 
+                        width={CANVAS_SIZE}
+                        height={CANVAS_SIZE}
+                        id="canvas" 
+                        ref={canvas} 
+                        onMouseDown={handleCanvasMouseDown}
+                        onMouseMove={handleCanvasMouseMove}
+                        onMouseUp={handleCanvasMouseUp}
+                        onMouseLeave={() => setIsDrawing(false)}
+                    />
+                    </div>
+
+                    <div>
+                        <label htmlFor="colorPicker">Color: </label>
+                        <input type="color" id="colorPicker" defaultValue="#000000" ref={colorPicker}/>
+                    </div>
+
+                    <div>
+                        <label htmlFor="toggleGuide">Toggle Grid: </label>
+                        <input type="checkbox" id="toggleGuide" defaultChecked ref={toggleGuide} onChange={handleToggleGuide}/>
+                    </div>
+
+                    <div>
+                        <button type="button" id="clear" ref={clearButton} onClick={handleClearButton}>Clear</button>
+                    </div>
+                </div>
+            
         </>
     )
 }
+
+
+
 
 export default Canvas

@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Daydream';
+    src: url('../fonts/Daydream/Daydream DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixelify';
+    src: url('../fonts/Pixelify/PixelifySans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-family: 'Pixelify', monospace, sans-serif;
+    font-size: 50px;
+}
+
+a {
+    font-family: 'Pixelify', monospace, sans-serif;
+}
+

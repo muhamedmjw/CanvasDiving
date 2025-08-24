@@ -1,4 +1,7 @@
-.canvas-container {
+
+
+
+.canvas {
     position: relative;
     display: inline-block;
     border: 2px solid #333;
@@ -24,6 +27,6 @@
 }
 
 #guide div {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
