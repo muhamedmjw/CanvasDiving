@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-    font-family: 'Pixelify', monospace, sans-serif;
+    font-family: 'Daydream', monospace, sans-serif;
     font-size: 50px;
 }
 
@@ -28,3 +28,29 @@ a {
     font-family: 'Pixelify', monospace, sans-serif;
 }
 
+.parent {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+  font-size: 2rem;
+  padding: 20px;
+}
+
+.parent > div {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 15px;
+}

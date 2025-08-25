@@ -1,0 +1,11 @@
+.side-panel-left {
+    border: solid 1px black;
+    width: 200px;
+    height: 640px;
+}
+
+.side-panel-right {
+    border: solid 1px black;
+    width: 200px;
+    height: 640px;
+}

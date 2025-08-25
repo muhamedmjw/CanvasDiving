@@ -1,0 +1,42 @@
+.home-container {
+  display: grid;
+  grid-template-areas:
+    "left canvas right"
+    "bottom canvas right";
+  grid-template-columns: 200px 1fr 200px;  /* adjust widths */
+  grid-template-rows: 1fr auto;            /* main area + bottom row */
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+}
+
+/* Grid areas */
+.side-panel-left {
+  grid-area: left;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.canvas {
+  grid-area: canvas;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 0px;
+  margin: 0px;
+}
+
+.side-panel-right {
+  grid-area: right;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.button-container {
+  grid-area: bottom;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}

@@ -2,9 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import '../assets/styles/Canvas.css';
 import { CANVAS_CONFIG, handleCanvasInteraction, clearCanvas, toggleGuide } from '../utils/canvasUtils.js';
 import Button from "./Button.jsx";
+import { useCanvasOperations } from '../hooks/useCanvasOperations'; // Add this import
+
 
 function Canvas() {
     const canvas = useRef(null);
+    const { setCanvasRef } = useCanvasOperations();
     const guide = useRef(null);
     const colorPicker = useRef(null);
     const toggleGuideRef = useRef(null);
@@ -13,6 +16,7 @@ function Canvas() {
 
     useEffect(() => {
         handleCanvasInteraction('init', { canvas: canvas.current, guide: guide.current });
+        setCanvasRef(canvas.current);
     }, []);
 
     const onMouseEvent = (e, type) => {
@@ -34,7 +38,7 @@ function Canvas() {
     };
 
     return (
-        <div className="canvas-component">
+        <>
             <div className="canvas">
                 <div id="guide" ref={guide} style={{ width: CANVAS_CONFIG.CANVAS_SIZE, height: CANVAS_CONFIG.CANVAS_SIZE }} />
                 <canvas 
@@ -65,10 +69,7 @@ function Canvas() {
                 />
             </div>
 
-            <div>
-                <Button buttonText="Clear" className="button" onClick={() => clearCanvas(canvas.current, colorHistory)} />
-            </div>
-        </div>
+        </>
     );
 }
 

@@ -1,24 +1,41 @@
 import Button from "../components/Button";
 import Canvas from "../components/Canvas";
 import SidePanel from "../components/SidePanel";
+import ColorPicker from "../components/ColorPicker";
 import { useCanvasOperations } from "../hooks/useCanvasOperations";
+import "../assets/styles/Home.css";
 
 function Home() {
-    const { clearCanvas } = useCanvasOperations();
+    const { clearCanvas, setColor } = useCanvasOperations();
 
     return (
-        <div className="Home">
-            <SidePanel/>
+        <div className="main-container">
+
+            <SidePanel className="side-panel-left">
+            </SidePanel>
+
+            
             <Canvas className="canvas"/>
-            <SidePanel/>
-            <Button buttonText="Draw" className="button"/>
-            <Button buttonText="Dive" className="button"/>
-            {/* Now you can easily add the Clear button here! */}
-            <Button 
-                buttonText="Clear" 
-                className="button" 
-                onClick={clearCanvas}
-            />
+            
+
+            <SidePanel className="side-panel-right"> 
+                <Button 
+                    buttonText="Clear"  
+                    className="Button" 
+                    onClick={clearCanvas}
+                /> 
+
+                <ColorPicker setColor={setColor} />
+
+                
+
+            </SidePanel>
+
+            <div className="button-container">
+                <Button buttonText="Draw" className="button-draw"/>
+                <Button buttonText="Dive" className="button-dive"/>
+            </div>
+
         </div>
     );
 }
