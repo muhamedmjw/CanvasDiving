@@ -1,6 +1,6 @@
 // Canvas utility functions
 export const CANVAS_CONFIG = {
-    SIZE_COUNT: 64,
+    SIZE_COUNT: 16,
     CANVAS_SIZE: 640,
     get CELL_SIZE() {
         return this.CANVAS_SIZE / this.SIZE_COUNT;

@@ -1,9 +1,9 @@
 import '../assets/styles/Button.css'
 
-function Button({ buttonText }){
+function Button({ buttonText, onClick }){
 
     return (
-        <button className="Button">
+        <button className="Button" onClick={onClick}>
             {buttonText}
         </button>
     )

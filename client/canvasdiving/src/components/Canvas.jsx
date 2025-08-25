@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import '../assets/styles/Canvas.css';
 import { CANVAS_CONFIG, handleCanvasInteraction, clearCanvas, toggleGuide } from '../utils/canvasUtils.js';
+import Button from "./Button.jsx";
 
 function Canvas() {
     const canvas = useRef(null);
@@ -65,7 +66,7 @@ function Canvas() {
             </div>
 
             <div>
-                <button onClick={() => clearCanvas(canvas.current, colorHistory)}>Clear</button>
+                <Button buttonText="Clear" className="button" onClick={() => clearCanvas(canvas.current, colorHistory)} />
             </div>
         </div>
     );
