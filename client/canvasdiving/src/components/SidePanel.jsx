@@ -1,8 +1,8 @@
 import "../assets/styles/SidePanel.css";
 
-export default function SidePanel({ className, children }) {
+export default function SidePanel({ children, position = "left" }) {
     return (
-        <div className={className}>
+        <div className={`side-panel-${position}`}>
             {children}
         </div>
     );

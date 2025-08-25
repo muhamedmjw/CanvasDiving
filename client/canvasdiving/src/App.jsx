@@ -9,11 +9,11 @@ function App() {
             <>
                 
                     <div className="header">
-                        <h1>Canvas Diving</h1>
+                        <h1 className='header-title'>Canvas Diving</h1>
                     </div>
                     
                     <div className="main">
-                        <Home />
+                        <Home className='main-content'/>
                     </div>
 
                     <div className="footer">

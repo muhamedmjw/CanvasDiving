@@ -1,22 +1,17 @@
 import { useRef, useEffect, useState } from "react";
 import '../assets/styles/Canvas.css';
 import { CANVAS_CONFIG, handleCanvasInteraction, clearCanvas, toggleGuide } from '../utils/canvasUtils.js';
-import Button from "./Button.jsx";
-import { useCanvasOperations } from '../hooks/useCanvasOperations'; // Add this import
-
+import { useCanvas } from '../context/canvasContext.jsx';
 
 function Canvas() {
     const canvas = useRef(null);
-    const { setCanvasRef } = useCanvasOperations();
     const guide = useRef(null);
-    const colorPicker = useRef(null);
-    const toggleGuideRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
+    const { state } = useCanvas();
     const colorHistory = {};
 
     useEffect(() => {
         handleCanvasInteraction('init', { canvas: canvas.current, guide: guide.current });
-        setCanvasRef(canvas.current);
     }, []);
 
     const onMouseEvent = (e, type) => {
@@ -30,9 +25,9 @@ function Canvas() {
             handleCanvasInteraction('draw', {
                 canvas: canvas.current,
                 event: e,
-                color: colorPicker.current.value,
+                color: state.currentColor,
                 colorHistory,
-                colorPicker: colorPicker.current
+                colorPicker: null
             });
         }
     };
@@ -52,23 +47,6 @@ function Canvas() {
                     onMouseLeave={(e) => onMouseEvent(e, 'leave')}
                 />
             </div>
-
-            <div>
-                <label htmlFor="colorPicker">Color: </label>
-                <input type="color" id="colorPicker" defaultValue="#000000" ref={colorPicker} />
-            </div>
-
-            <div>
-                <label htmlFor="toggleGuide">Toggle Grid: </label>
-                <input 
-                    type="checkbox" 
-                    id="toggleGuide" 
-                    defaultChecked 
-                    ref={toggleGuideRef} 
-                    onChange={() => toggleGuide(guide.current, toggleGuideRef.current.checked)}
-                />
-            </div>
-
         </>
     );
 }

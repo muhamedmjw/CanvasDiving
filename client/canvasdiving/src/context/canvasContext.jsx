@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { clearCanvas } from '../utils/canvasUtils';
 
-
 const CanvasContext = createContext();
 
 const canvasReducer = (state, action) => {
@@ -20,7 +19,6 @@ const canvasReducer = (state, action) => {
   }
 };
 
-// Canvas provider component (Initialize context)
 export const CanvasProvider = ({ children }) => {
   const [state, dispatch] = useReducer(canvasReducer, {
     canvasRef: null,
@@ -34,7 +32,6 @@ export const CanvasProvider = ({ children }) => {
     </CanvasContext.Provider>
   );
 };
-
 
 export const useCanvas = () => {
   const context = useContext(CanvasContext);

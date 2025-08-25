@@ -1,11 +1,28 @@
+@font-face {
+    font-family: 'Daydream';
+    src: url('../fonts/Daydream/Daydream DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pixelify';
+    src: url('../fonts/Pixelify/PixelifySans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .side-panel-left {
     border: solid 1px black;
-    width: 200px;
-    height: 640px;
+
+    font-family: 'Pixelify', monospace, sans-serif;
 }
 
 .side-panel-right {
     border: solid 1px black;
-    width: 200px;
-    height: 640px;
+
+    font-family: 'Pixelify', monospace, sans-serif;
+
 }
